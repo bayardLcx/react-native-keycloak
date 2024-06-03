@@ -2,7 +2,7 @@
   "name": "@react-keycloak/native",
   "version": "0.6.4",
   "license": "MIT",
-  "description": "React Native component for Keycloak javascript adapter",
+  "description": "React Native component for Keycloak javascript adapter Bayard",
   "repository": "https://github.com/react-keycloak/react-native-keycloak",
   "author": "IronTony <zimzum4@gmail.com> (https://github.com/IronTony)",
   "bugs": {
