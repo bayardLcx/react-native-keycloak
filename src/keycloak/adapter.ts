@@ -41,6 +41,7 @@ class RNAdapter implements KeycloakAdapter {
    * @param {KeycloakLoginOptions} options Login options
    */
   async login(options?: KeycloakLoginOptions): Promise<void> {
+    console.log('login from adaper', options);
     const loginUrl = this.client.createLoginUrl(options);
 
     if (await InAppBrowser.isAvailable()) {
@@ -50,7 +51,7 @@ class RNAdapter implements KeycloakAdapter {
         this.client.redirectUri!,
         this.initOptions.inAppBrowserOptions
       );
-
+      console.log('login response from adaper', res);
       if (res.type === 'success' && res.url) {
         const oauth = this.client.parseCallback(res.url);
         return this.client.processCallback(oauth);
@@ -162,7 +163,7 @@ class RNAdapter implements KeycloakAdapter {
       },
       body: params,
     });
-
+    console.log('refreshTokens response from adaper', tokenRes);
     if (!tokenRes.ok) throw new Error('refreshTokens failed');
     return (await tokenRes.json()) as FetchTokenResponse;
   }
