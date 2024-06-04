@@ -164,7 +164,7 @@ class RNAdapter implements KeycloakAdapter {
       body: params,
     });
     console.log('refreshTokens response from adaper', tokenRes);
-    if (!tokenRes.ok) throw new Error('refreshTokens failed');
+    if (!tokenRes.ok) throw new Error(`${tokenRes.status} failed to refresh token`);
     return (await tokenRes.json()) as FetchTokenResponse;
   }
 
